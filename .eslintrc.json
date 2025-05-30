@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    "prefer-const": "error",
+    "no-var": "error",
+    "no-console": "warn"
+  },
+  "ignorePatterns": ["node_modules/", ".next/", "out/", "public/"]
+} 
