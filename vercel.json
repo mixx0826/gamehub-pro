@@ -8,31 +8,31 @@
   "devCommand": "npm run dev",
   "rewrites": [
     {
-      "source": "/((?!api|_next|_static|_vercel|favicon.ico|images|assets|games|test-games).*)",
+      "source": "/((?!api|_next|_static|_vercel|favicon.ico|images|assets|games|test-games|uploaded-games).*)",
       "destination": "/index.html"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/games/(.*)",
-      "dest": "/games/$1"
-    },
-    {
-      "src": "/test-games/(.*)",
-      "dest": "/test-games/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
     }
   ],
   "headers": [
     {
       "source": "/games/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/test-games/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control", 
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/uploaded-games/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -59,16 +59,11 @@
       ]
     }
   ],
-  "functions": {
-    "app/api/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "env": {
     "VITE_APP_TITLE": "@gamehub-pro-title",
     "VITE_APP_ENV": "production",
     "VITE_GITHUB_TOKEN": "@github-token",
-    "VITE_GITHUB_OWNER": "@github-owner",
+    "VITE_GITHUB_OWNER": "@github-owner", 
     "VITE_GITHUB_STORAGE_REPO": "@github-storage-repo"
   },
   "build": {
