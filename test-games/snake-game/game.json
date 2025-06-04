@@ -1,0 +1,27 @@
+{
+  "title": "贪吃蛇游戏",
+  "slug": "snake-game",
+  "description": "经典的贪吃蛇游戏，控制蛇吃食物并避免撞到自己。简单易玩，让人上瘾的经典街机游戏！",
+  "version": "1.0.0",
+  "author": "GameHub Studios",
+  "category": ["Arcade", "Classic"],
+  "tags": ["贪吃蛇", "经典", "街机", "单人"],
+  "isMobile": true,
+  "instructions": "使用方向键或触摸滑动控制蛇的移动方向。吃食物增长身体，避免撞墙或撞到自己！",
+  "controls": {
+    "keyboard": "方向键 - 控制移动方向, 空格键 - 开始游戏",
+    "touch": "滑动屏幕控制移动方向",
+    "mouse": "点击屏幕上的方向按钮"
+  },
+  "features": [
+    "经典贪吃蛇玩法",
+    "最高分记录",
+    "触摸屏支持",
+    "键盘控制",
+    "流畅动画",
+    "响应式设计"
+  ],
+  "minAge": 6,
+  "difficulty": "简单",
+  "gameType": "单人游戏"
+} 

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Clicker Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+        .game-container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 100%;
+        }
+        .title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .score {
+            font-size: 24px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+        .click-button {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+            margin: 20px 0;
+        }
+        .click-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(255, 107, 107, 0.4);
+        }
+        .click-button:active {
+            transform: scale(0.95);
+        }
+        .upgrades {
+            margin-top: 30px;
+        }
+        .upgrade-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #4ecdc4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .upgrade-button:hover {
+            background: #45b7aa;
+            transform: translateY(-2px);
+        }
+        .upgrade-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .stats {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="title">🖱️ Simple Clicker</h1>
+        <div class="score">Cookies: <span id="score">0</span></div>
+        <div class="stats">Per Click: <span id="perClick">1</span></div>
+        
+        <button class="click-button" id="clickButton" onclick="clickCookie()">
+            🍪<br>CLICK ME!
+        </button>
+        
+        <div class="upgrades">
+            <button class="upgrade-button" id="upgrade1" onclick="buyUpgrade(1)">
+                Double Click Power - Cost: <span id="cost1">10</span> cookies
+            </button>
+            <button class="upgrade-button" id="upgrade2" onclick="buyUpgrade(2)">
+                Auto Clicker - Cost: <span id="cost2">50</span> cookies
+            </button>
+            <button class="upgrade-button" id="upgrade3" onclick="buyUpgrade(3)">
+                Cookie Factory - Cost: <span id="cost3">200</span> cookies
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        let clickPower = 1;
+        let autoClickPower = 0;
+        let upgradeCosts = [10, 50, 200];
+        let upgradesBought = [0, 0, 0];
+
+        function updateDisplay() {
+            document.getElementById('score').textContent = score;
+            document.getElementById('perClick').textContent = clickPower;
+            
+            // Update upgrade buttons
+            for (let i = 0; i < 3; i++) {
+                const button = document.getElementById(`upgrade${i + 1}`);
+                const cost = upgradeCosts[i];
+                document.getElementById(`cost${i + 1}`).textContent = cost;
+                button.disabled = score < cost;
+            }
+        }
+
+        function clickCookie() {
+            score += clickPower;
+            updateDisplay();
+            
+            // Add click animation
+            const button = document.getElementById('clickButton');
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        function buyUpgrade(upgradeType) {
+            const cost = upgradeCosts[upgradeType - 1];
+            
+            if (score >= cost) {
+                score -= cost;
+                upgradesBought[upgradeType - 1]++;
+                
+                switch (upgradeType) {
+                    case 1: // Double click power
+                        clickPower *= 2;
+                        upgradeCosts[0] *= 2;
+                        break;
+                    case 2: // Auto clicker
+                        autoClickPower += 1;
+                        upgradeCosts[1] = Math.floor(upgradeCosts[1] * 1.5);
+                        break;
+                    case 3: // Cookie factory
+                        autoClickPower += 5;
+                        upgradeCosts[2] = Math.floor(upgradeCosts[2] * 1.8);
+                        break;
+                }
+                
+                updateDisplay();
+            }
+        }
+
+        // Auto clicker functionality
+        setInterval(() => {
+            if (autoClickPower > 0) {
+                score += autoClickPower;
+                updateDisplay();
+            }
+        }, 1000);
+
+        // Initialize display
+        updateDisplay();
+
+        // Add some fun effects
+        setInterval(() => {
+            if (Math.random() < 0.1) {
+                document.body.style.background = `linear-gradient(135deg, hsl(${Math.random() * 360}, 70%, 60%) 0%, hsl(${Math.random() * 360}, 70%, 60%) 100%)`;
+            }
+        }, 5000);
+    </script>
+</body>
+</html> 

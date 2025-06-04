@@ -1,0 +1,25 @@
+{
+  "title": "简单点击游戏",
+  "slug": "simple-clicker",
+  "description": "一个简单有趣的点击游戏，测试你的手速和反应能力。点击按钮获得分数，挑战自己的极限！",
+  "version": "1.0.0",
+  "author": "GameHub Studios",
+  "category": ["Arcade", "Casual"],
+  "tags": ["点击", "休闲", "街机", "简单"],
+  "isMobile": true,
+  "instructions": "点击按钮或按空格键来获得分数。看看你能多快点击！",
+  "controls": {
+    "mouse": "点击按钮",
+    "keyboard": "空格键 - 点击"
+  },
+  "features": [
+    "实时点击统计",
+    "每秒点击数计算",
+    "点击特效动画",
+    "键盘支持",
+    "响应式设计"
+  ],
+  "minAge": 3,
+  "difficulty": "简单",
+  "gameType": "单人游戏"
+} 

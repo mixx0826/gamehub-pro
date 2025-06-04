@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="actionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4757"/>
+      <stop offset="100%" style="stop-color:#ff9ff3"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="200" fill="url(#actionGrad)" opacity="0.1"/>
+  
+  <!-- Sword -->
+  <rect x="95" y="30" width="10" height="80" rx="5" fill="url(#actionGrad)"/>
+  <rect x="85" y="110" width="30" height="15" rx="7" fill="url(#actionGrad)"/>
+  <circle cx="100" cy="125" r="8" fill="url(#actionGrad)"/>
+  
+  <!-- Shield -->
+  <path d="M 140 60 Q 160 50 160 80 Q 160 110 140 120 Q 120 110 120 80 Q 120 50 140 60 Z" fill="#4834d4" opacity="0.8"/>
+  <path d="M 140 65 Q 155 60 155 80 Q 155 100 140 105 Q 125 100 125 80 Q 125 60 140 65 Z" fill="white" opacity="0.9"/>
+  
+  <!-- Explosion effects -->
+  <circle cx="70" cy="70" r="6" fill="#ffd93d" opacity="0.8"/>
+  <circle cx="65" cy="75" r="4" fill="#ff6b6b" opacity="0.6"/>
+  <circle cx="75" cy="65" r="3" fill="#ff9f43" opacity="0.7"/>
+  
+  <circle cx="170" cy="120" r="5" fill="#ffd93d" opacity="0.8"/>
+  <circle cx="175" cy="115" r="3" fill="#ff6b6b" opacity="0.6"/>
+  
+  <!-- Lightning bolts -->
+  <path d="M 50 100 L 45 110 L 50 115 L 40 130 L 50 120 L 45 115 L 55 105 Z" fill="#ffd93d"/>
+  <path d="M 170 50 L 165 60 L 170 65 L 160 80 L 170 70 L 165 65 L 175 55 Z" fill="#ffd93d"/>
+  
+  <!-- Impact lines -->
+  <rect x="30" y="90" width="20" height="2" rx="1" fill="url(#actionGrad)" opacity="0.6"/>
+  <rect x="25" y="95" width="25" height="2" rx="1" fill="url(#actionGrad)" opacity="0.4"/>
+  <rect x="35" y="100" width="15" height="2" rx="1" fill="url(#actionGrad)" opacity="0.8"/>
+</svg> 

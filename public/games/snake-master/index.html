@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Master - GameHub Pro</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+        .game-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .game-message {
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #3F51B5;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-message">
+            <h1>Snake Master</h1>
+            <p>This game is embedded within the GameHub Pro platform.</p>
+            <p>You're currently viewing it in standalone mode.</p>
+            <button onclick="window.parent.location.href='/'">Return to GameHub</button>
+        </div>
+    </div>
+    <script>
+        // This script would check if we're in an iframe
+        // If we are, we'd hide the message and let the parent page handle the game
+        window.onload = function() {
+            if (window.self !== window.top) {
+                document.querySelector('.game-message').style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
